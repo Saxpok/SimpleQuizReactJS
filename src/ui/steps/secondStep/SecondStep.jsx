@@ -4,33 +4,30 @@ import { MyButton } from "../../myButton/MyButton";
 
 export const SecondStep = ({data}) => {
     const [chosenAnswers, setChosenAnswers] = useState(null)
-    const [questonNumber, setQuestionNumber] = useState(0)
-
-    const saveAnsver =  (text, chosen) => (e) => {
-
-        setChosenAnswers({
-            questionText: text,
-            chosenAnswer: chosen
-        })
-    } 
-    
-    console.log(chosenAnswers)
+    const [questionNumber, setQuestionNumber] = useState(0)
 
     const changeStep = () => {
-        setQuestionNumber(questonNumber++)
+        setQuestionNumber((prev) => prev + 1)
     }
 
-
     const getQuestionData = () => {
+        const currentQuestion = data[questionNumber];
+
         return {
-            questionText: data[questonNumber].question,
-            answers: data[questonNumber].answers
+            questionText: currentQuestion.question,
+            answers: currentQuestion.answers,
+            onAnswerClick: (chosenAnswer) => () => {
+                setChosenAnswers({
+                    questionText: currentQuestion.question,
+                    userAnswer: chosenAnswer
+                })
+            }
         }
     }
 
     return (
         <div className="SecondStep">
-            <Question answerClick={saveAnsver}{...getQuestionData()}/>
+            <Question {...getQuestionData()} chosenAnswers={chosenAnswers} />
             <MyButton clickHandler={changeStep} text="Next"/>
         </div>
     )

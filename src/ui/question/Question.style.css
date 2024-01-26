@@ -4,3 +4,10 @@
     color: white;
     gap: 2px
 }
+
+.VariantCorrect {
+    color: green;
+}
+.VariantUnCorrect {
+    color: red;
+}
