@@ -1,0 +1,6 @@
+.Question {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 2px
+}

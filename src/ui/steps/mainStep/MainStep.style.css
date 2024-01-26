@@ -1,0 +1,7 @@
+.MainStep{
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 3vh;
+}
