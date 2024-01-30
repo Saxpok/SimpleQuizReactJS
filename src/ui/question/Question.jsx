@@ -9,10 +9,10 @@ export const Question = ({
     chosenAnswers 
 }) => {
     const getClassName = ({ msg }) => {
-        if (!chosenAnswers) return 'Variant';
-        console.log(chosenAnswers[questionNumber])
+        if (!chosenAnswers || !chosenAnswers[questionNumber]) return 'Variant';
+
         const { userAnswer: { trigger: chosenTrigger, msg: chosenMsg } } = chosenAnswers[questionNumber];
-        
+
         if (chosenMsg === msg) {
             return chosenTrigger === 'correct' ? 'VariantCorrect' : 'VariantUnCorrect'
         }
@@ -21,8 +21,8 @@ export const Question = ({
     const spawnAnswers = () => {
         return answers.map((item, i) => {
             return (
-                <div 
-                    key={i} 
+                <div
+                    key={i}
                     onClick={onAnswerClick(item)}
                     className={getClassName(item)}
                 >

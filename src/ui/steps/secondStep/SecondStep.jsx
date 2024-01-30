@@ -6,7 +6,6 @@ export const SecondStep = ({data}) => {
     const [chosenAnswers, setChosenAnswers] = useState(null)
     const [questionNumber, setQuestionNumber] = useState(0)
 
-
     const changeStep = () => {
         setQuestionNumber((prev) => prev + 1)
     }
