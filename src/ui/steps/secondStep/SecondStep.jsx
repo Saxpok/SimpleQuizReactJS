@@ -6,6 +6,8 @@ export const SecondStep = ({data}) => {
     const [chosenAnswers, setChosenAnswers] = useState(null)
     const [questionNumber, setQuestionNumber] = useState(0)
 
+    console.log(chosenAnswers)
+
     const changeStep = () => {
         setQuestionNumber((prev) => prev + 1)
     }
@@ -17,10 +19,24 @@ export const SecondStep = ({data}) => {
             questionText: currentQuestion.question,
             answers: currentQuestion.answers,
             onAnswerClick: (chosenAnswer) => () => {
-                setChosenAnswers({
-                    questionText: currentQuestion.question,
-                    userAnswer: chosenAnswer
+                setChosenAnswers((prevAnsvers) => {
+                    if (prevAnsvers !== null) {
+                        return [...prevAnsvers, {
+                            questionText: currentQuestion.question, 
+                            userAnswer: chosenAnswer
+                        }]
+                    } else { return [...prevAnsvers, {
+                        questionText: currentQuestion.question, 
+                        userAnswer: chosenAnswer
+                    }]
+
+                    }
+                    // return [prevAnsvers , {
+                    //     questionText: currentQuestion.question, 
+                    //     userAnswer: chosenAnswer
+                    // }]
                 })
+            
             }
         }
     }
