@@ -18,25 +18,15 @@ export const SecondStep = ({data}) => {
         return {
             questionText: currentQuestion.question,
             answers: currentQuestion.answers,
-            onAnswerClick: (chosenAnswer) => () => {
-                setChosenAnswers((prevAnsvers) => {
-                    if (prevAnsvers !== null) {
-                        return [...prevAnsvers, {
-                            questionText: currentQuestion.question, 
-                            userAnswer: chosenAnswer
-                        }]
-                    } else { return [...prevAnsvers, {
-                        questionText: currentQuestion.question, 
-                        userAnswer: chosenAnswer
-                    }]
-
+            onAnswerClick: (answer) => () => {
+                setChosenAnswers((prevAnswers) => {
+                    const newAnswer = {
+                        questionText: currentQuestion.question,
+                        userAnswer: answer
                     }
-                    // return [prevAnsvers , {
-                    //     questionText: currentQuestion.question, 
-                    //     userAnswer: chosenAnswer
-                    // }]
+
+                    return prevAnswers ? [...prevAnswers, newAnswer] :  [newAnswer]
                 })
-            
             }
         }
     }
