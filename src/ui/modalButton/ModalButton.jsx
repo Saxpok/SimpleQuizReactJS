@@ -5,7 +5,6 @@ export const ModalButton = () => {
     
     const modal = () => {
         sessionStorage.setItem('form', prompt('Ok?'))
-        console.log(sessionStorage.getItem('form'))
     }
 
     return (

@@ -1,11 +1,18 @@
 import React from "react";
 import "./Question.style.css"
 
-export const Question = ({ questionText, answers, onAnswerClick, chosenAnswers }) => {
+export const Question = ({ 
+    questionNumber, 
+    questionText, 
+    answers, 
+    onAnswerClick, 
+    chosenAnswers 
+}) => {
     const getClassName = ({ msg }) => {
         if (!chosenAnswers) return 'Variant';
-
-        const { userAnswer: { trigger: chosenTrigger, msg: chosenMsg } } = chosenAnswers;
+        console.log(chosenAnswers[questionNumber])
+        const { userAnswer: { trigger: chosenTrigger, msg: chosenMsg } } = chosenAnswers[questionNumber];
+        
         if (chosenMsg === msg) {
             return chosenTrigger === 'correct' ? 'VariantCorrect' : 'VariantUnCorrect'
         }

@@ -6,7 +6,6 @@ export const SecondStep = ({data}) => {
     const [chosenAnswers, setChosenAnswers] = useState(null)
     const [questionNumber, setQuestionNumber] = useState(0)
 
-    console.log(chosenAnswers)
 
     const changeStep = () => {
         setQuestionNumber((prev) => prev + 1)
@@ -33,7 +32,7 @@ export const SecondStep = ({data}) => {
 
     return (
         <div className="SecondStep">
-            <Question {...getQuestionData()} chosenAnswers={chosenAnswers} />
+            <Question {...getQuestionData()} questionNumber={questionNumber} chosenAnswers={chosenAnswers} />
             <MyButton clickHandler={changeStep} text="Next"/>
         </div>
     )
