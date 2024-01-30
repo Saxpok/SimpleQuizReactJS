@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import { CustomRange } from './ui/customRange/CustomRange';
-import { Test } from './ui/test/Test';
-import { ModalButton } from './ui/modalButton/ModalButton';
-import { MyInput } from './ui/myInput/MyInput';
 import { MainStep } from './ui/steps/mainStep/MainStep';
 import { SecondStep } from './ui/steps/secondStep/SecondStep';
 import { Levels } from './constants';
