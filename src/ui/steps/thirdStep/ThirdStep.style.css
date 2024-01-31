@@ -1,0 +1,16 @@
+.ThirdStep {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff
+}
+
+.ResultAnswers {
+    color: azure;
+}
+
+.ResultAnswer {
+    border: 1px solid white;
+    border-radius: 7px;
+    margin: 1vh;
+    padding: 1vh
+}

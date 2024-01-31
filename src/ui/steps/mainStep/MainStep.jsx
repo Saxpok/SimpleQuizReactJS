@@ -7,22 +7,29 @@ import { Levels } from "../../../constants";
 
 
 export const MainStep = ({nextStep, settings, setSettings}) => {
-    //const [settings, setSettings] = useState({name: '', level: Levels[0]})
-    
     const onLevelChange = (event) => {
         setSettings({...settings, level: event.target.value})
     }
 
     const onNameChange = (event) => {
-        
         setSettings({...settings, name: event.target.value})
     }
 
     return (
         <div className="MainStep">
-            <MyInput placeholder="Enter your name" changeHandler={onNameChange}/>
-            <Selector options={Levels} changeHandler={onLevelChange}/>
-            <MyButton clickHandler={nextStep} isDisabled={!settings.name.length} text="Start"/>
+            <MyInput 
+            placeholder="Enter your name" 
+            changeHandler={onNameChange}
+            />
+            <Selector 
+            options={Levels} 
+            changeHandler={onLevelChange}
+            />
+            <MyButton 
+            clickHandler={nextStep} 
+            isDisabled={!settings.name.length} 
+            text="Start"
+            />
         </div>
     )
 }
